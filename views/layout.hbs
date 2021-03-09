@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>Trivial Webapp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    {{{body}}}
+    <navbar>
+      <a href="/">Home</a>
+      <div>
+      {{#if currentUser}}
+        Hello {{{currentUser.username}}}! |
+        <a href="/submit">Submit</a> |
+        <a href="/logout">Logout</a>
+      {{else}}
+        <a href="/signup">Signup</a> |
+        <a href="/login">Login</a>
+      {{/if}}
+      </div>
+    </navbar>
+    <main>
+      {{{body}}}
+    </main>
   </body>
 </html>

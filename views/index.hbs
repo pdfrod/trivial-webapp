@@ -1,2 +1,17 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>News</h1>
+
+{{#each stories}}
+  <div class="story">
+    <div class="left">
+      <span class="storyTitle">{{{title}}}</span>
+      <span class="storyDescription">{{{description}}}</span>
+    </div>
+    <div class="right">
+      <span class="storyAuthor">Submited by: <strong>{{{username}}}</strong></span>
+      <span class="storyUpvotes">Upvotes: <strong>{{upvotes}}</strong></span>
+      {{#if canUpvote}}
+        <a href="/upvote?id={{storyId}}" class="success button upvoteButton">Upvote</a>
+      {{/if}}
+    </div>
+  </div>
+{{/each}}
